@@ -1,0 +1,21 @@
+{
+  "name": "Django-CouchDB",
+  "version": "0.9",
+  "manifest_version": 2,
+  "description": "This Plugin simply adds a link next to a couchDB file in the Django Admin Interface. This helpt to open a file very quick directly from the admin interface without setting up nginx.",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "contentscript.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "web_accessible_resources": ["script.js"]
+}
