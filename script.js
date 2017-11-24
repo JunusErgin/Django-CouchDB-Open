@@ -1,4 +1,4 @@
-if (document.title.indexOf('Django site admin') > -1) {
+function changeCouchDBURL() {
   var couchdb_base = 'http://localhost:5984';
   var couchdb_database = 'tc_test';
   files = document.getElementsByClassName('file-upload');
@@ -15,4 +15,38 @@ if (document.title.indexOf('Django site admin') > -1) {
       }
     }
   }
+}
+
+function addNextButton() {
+  try {
+    var newURL = document.location.href.split('/change/')[0].split('/');
+    var id = newURL.pop();
+    var objectTools = document.getElementsByClassName('object-tools')[0];
+    var aNext = document.createElement('a');
+    aNext.className = 'permissionslink';
+    aNext.href = newURL.join('/') + '/' + (+id + 1) + '/change/';
+    aNext.innerText = 'Next';
+    var liNext = document.createElement('li');
+    liNext.appendChild(aNext);
+
+
+    var aPrev = document.createElement('a');
+    aPrev.className = 'permissionslink';
+    aPrev.href = newURL.join('/') + '/' + (+id - 1) + '/change/';
+    aPrev.innerText = 'Previous';
+    var liPrev = document.createElement('li');
+    liPrev.appendChild(aPrev);
+
+
+    objectTools.appendChild(liNext);
+    objectTools.appendChild(liPrev);
+  } catch (e) {
+
+  }
+
+}
+
+if (document.title.indexOf('Django site admin') > -1) {
+  changeCouchDBURL();
+  addNextButton();
 }
