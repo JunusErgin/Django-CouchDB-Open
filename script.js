@@ -38,8 +38,8 @@ function addNextButton() {
     liPrev.appendChild(aPrev);
 
 
-    objectTools.appendChild(liNext);
     objectTools.appendChild(liPrev);
+    objectTools.appendChild(liNext);
   } catch (e) {
 
   }
